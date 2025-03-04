@@ -2,7 +2,7 @@ package middleearth.management;
 
 public class MiddleEarthCouncil {
 
-	private static MiddelEarthCouncil instance;
+	private static MiddleEarthCouncil instance;
 	
 	private MiddleEarthCouncil() {}
 	
