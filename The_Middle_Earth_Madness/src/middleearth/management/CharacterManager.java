@@ -12,6 +12,9 @@ public class CharacterManager {
 		if(characters.length == size) 
 		{
 			MiddleEarthCharacter[] temp = new MiddleEarthCharacter[size * 2];
+			for (MiddleEarthCharacter character : characters) {
+				// example
+			}
 			for(int j = 0; j < size; j++) 
 			{
 				temp[j] = characters[j];
