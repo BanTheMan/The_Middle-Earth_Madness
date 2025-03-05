@@ -19,6 +19,10 @@ public abstract class MiddleEarthCharacter {
 	public void setName(String name) {
 		this.name = name;
 	}
+	
+	public double getHealth(double health) {
+		return this.health;
+	}
 
 	public void takeDamage(double damageTaken) {
 		this.health += damageTaken;
@@ -36,9 +40,9 @@ public abstract class MiddleEarthCharacter {
 		this.power = power;
 	}
 
-	abstract boolean attack(MiddleEarthCharacter target);
+	public abstract boolean attack(MiddleEarthCharacter target);
 	
-	abstract String getRace();
+	public abstract String getRace();
 	
 	public void displayInfo() {
 		System.out.println(

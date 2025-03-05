@@ -1,5 +1,6 @@
 package middleearth.management;
 
+import middleearth.characters.Elf;
 import middleearth.characters.MiddleEarthCharacter;
 
 public class CharacterManager {
@@ -36,9 +37,13 @@ public class CharacterManager {
 	{
 		for(int i = 0; i < size; i++) 
 		{
-			if(characters[i].name == name) 
+			if(characters[i].getName().equals(name)) 
 			{
-				MiddleEarthCharacter copy = new MiddleEarthCharacter(characters[i]); 
+				MiddleEarthCharacter copy = new Elf(
+						characters[i].getName(), 
+						characters[i].getHealth(i), 
+						characters[i].getPower());
+				characters[i].getRace();
 				// Look at constructor parameters and pass them by retrieving them from the character
 				// Make a copy of the character as their respective class - may require switch case
 				return copy;
