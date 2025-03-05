@@ -38,7 +38,9 @@ public class CharacterManager {
 		{
 			if(characters[i].name == name) 
 			{
-				MiddleEarthCharacter copy = new MiddleEarthCharacter(character[i]);
+				MiddleEarthCharacter copy = new MiddleEarthCharacter(characters[i]); 
+				// Look at constructor parameters and pass them by retrieving them from the character
+				// Make a copy of the character as their respective class - may require switch case
 				return copy;
 			}
 		}
@@ -90,7 +92,7 @@ public class CharacterManager {
 		{
 			if(characters[i] != character) 
 			{
-				temp[i] = character[i];
+				temp[i] = characters[i];
 			}
 		}
 		

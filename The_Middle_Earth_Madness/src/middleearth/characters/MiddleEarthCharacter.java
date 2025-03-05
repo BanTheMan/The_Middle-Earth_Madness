@@ -2,9 +2,9 @@ package middleearth.characters;
 
 public abstract class MiddleEarthCharacter {
 	
-	String name;
-	double health;
-	double power;
+	public String name;
+	public double health;
+	public double power;
 	
 	public MiddleEarthCharacter(String name, double health, double power) {
 		this.name = name;
