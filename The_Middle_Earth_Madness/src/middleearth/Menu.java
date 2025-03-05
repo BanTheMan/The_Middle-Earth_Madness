@@ -1,6 +1,5 @@
 package middleearth;
 
-
 import java.util.Scanner;
 
 public class Menu {
@@ -22,7 +21,7 @@ public void displayMenu() {
 		System.out.println("2. View all characters.\n");
 		System.out.println("3. Update a character.\n");
 		System.out.println("4. Delete a character.\n");
-		System.out.println("5. Execute all characeters' attack actions.\n");
+		System.out.println("5. Execute all characters' attack actions.\n");
 		System.out.println("6. Exit.\n");
 		System.out.println("Please enter an input: \n");
 		
@@ -58,6 +57,7 @@ public void displayMenu() {
 			case 6:
 				System.out.println("Input 6 selected.\n");
 				System.out.println("Exiting system.\n");
+				scanner.close();
 				return;
 			
 			default:
