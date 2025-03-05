@@ -1,11 +1,24 @@
 package middleearth.management;
 
 public class CharacterManager {
-	MiddleEarthCharacter[] characters = new MiddleEarthCharacter[5]; 
+	private MiddleEarthCharacter[] characters = new MiddleEarthCharacter[5]; 
 	private int size;
 	
 	public boolean addCharacter(MiddleEarthCharacter c) 
 	{
+		if(characters.length == size) 
+		{
+			MiddleEarthCharacter temp = new MiddleEarthCharacter[size * 2];
+			for(int j = 0; j < size; j++) 
+			{
+				temp[j] = characters[j]
+			}
+			temp[size+1] = c;
+			characters = temp;
+			size++;
+			return true;
+		}
+			
 		for(int i = 0; i < size; i++) 
 		{
 			if(characters[i] == null) {
@@ -70,21 +83,28 @@ public class CharacterManager {
 	
 	boolean deleteCharacter(MiddleEarthCharacter character) 
 	{
-		for (int i = 0; i < size; i++) 
+		MiddleEarthCharacter[] temp = new MiddleEarthCharacter[size];
+		for(int i = 0; i < size; i++) 
 		{
-			if(characters[i] == character) 
+			if(characters[i] != character) 
 			{
-				
+				temp[i] = character[i];
 			}
 		}
+		
+		characters = temp;
+		size--;
+		return true;
 	}
 	
 	public void displayAllCharacters() 
 	{
 		for(MiddleEarthCharacter character: characters)
 		{
-			if (character != null) {
+			if (character != null) 
+			{
 				character.displayInfo();
 			}	
+		}
 	}
 }
