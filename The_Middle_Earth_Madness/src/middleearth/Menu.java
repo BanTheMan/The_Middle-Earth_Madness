@@ -32,27 +32,27 @@ public void displayMenu() {
 		switch (choice) {
 			case 1:
 				System.out.println("Input 1 selected.\n");
-				addCharacter();
+				characterManager.addCharacter();
 				break;
 			
 			case 2:
 				System.out.println("Input 2 selected.\n");
-				viewCharacters();
+				characterManager.viewCharacters();
 				break;
 			
 			case 3:
 				System.out.println("Input 3 selected.\n");
-				updateCharacter();
+				characterManager.updateCharacter();
 				break;
 				
 			case 4:
 				System.out.println("Input 4 selected.\n");
-				deleteCharacter();
+				characterManager.deleteCharacter();
 				break;
 				
 			case 5:
 				System.out.println("Input 5 selected.\n");
-				executeAttacks();
+				characterManager.executeAttacks();
 				break;
 				
 			case 6:
@@ -62,30 +62,9 @@ public void displayMenu() {
 			
 			default:
 				System.out.println("Invalid input. Please try again.\n");
-				}
 			}
 		}
-	
-	private void addCharacter() {
-		System.out.println("Adding a new character:\n"); //help
 	}
-	
-	private void viewCharacters() {
-		characterManager.viewCharacters(); //help
-	}
-	
-	private void updateCharacter() {
-		
-	}
-		
-	private void deleteCharacter() {
-		
-	}
-	
-	private void executeAttacks() {
-		
-	}
-	
 }
 
 	
