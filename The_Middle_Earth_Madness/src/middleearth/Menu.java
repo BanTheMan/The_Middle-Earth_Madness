@@ -11,8 +11,8 @@ public class Menu {
 
 
 public Menu() {
-	scanner = new Scanner(System.in);
-	characterManager = new CharacterManager();
+	this.scanner = new Scanner(System.in);
+	this.characterManager = new CharacterManager();
 }
 
 
@@ -31,29 +31,29 @@ public void displayMenu() {
 		scanner.nextLine();
 		
 		switch (choice) {
-			case 1:
+			case 1: // Consider asking them to choose a race and amount of health & power
 				System.out.println("Input 1 selected.\n");
-				characterManager.addCharacter();
+				characterManager.addCharacter(); // Use given information to create and pass a character instance
 				break;
 			
 			case 2:
 				System.out.println("Input 2 selected.\n");
-				characterManager.viewCharacters();
+				characterManager.displayAllCharacters();
 				break;
 			
-			case 3:
+			case 3: // Consider given the user the option to choose which character to update
 				System.out.println("Input 3 selected.\n");
-				characterManager.updateCharacter();
+				characterManager.updateCharacter(); // Ask and pass the character and stats to update
 				break;
 				
 			case 4:
 				System.out.println("Input 4 selected.\n");
-				characterManager.deleteCharacter();
+				characterManager.deleteCharacter(); // Ask for and pass appropriate character
 				break;
 				
-			case 5:
+			case 5: // Consider creating a an interface for selecting who attacks who
 				System.out.println("Input 5 selected.\n");
-				characterManager.executeAttacks();
+				characterManager.executeAttacks(); // No function exists, may need to call individually
 				break;
 				
 			case 6:
