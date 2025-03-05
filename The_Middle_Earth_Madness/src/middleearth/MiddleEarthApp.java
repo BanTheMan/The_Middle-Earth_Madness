@@ -1,10 +1,9 @@
 package middleearth;
 
-public class MiddleEarthApp {
-
-	// Manually create a demonstration sequence...
+public class MiddleEarthApp {	
 	
-	
-	// ... Then call the menu
+	public static void main(String[] args) {
+		// Call the menu
+	}
 	
 }
