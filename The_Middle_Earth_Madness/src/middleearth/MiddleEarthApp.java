@@ -2,9 +2,13 @@ package middleearth;
 
 public class MiddleEarthApp {
 
-	// Manually create a demonstration sequence...
-	
-	
-	// ... Then call the menu
-	
+	public static void main(String[] args) {
+		
+		System.out.println("\nWelcome to Middle Earth Madness!\n");
+		
+		Menu menu = new Menu();
+		menu.displayMenu();
+		
+	}
 }
+
