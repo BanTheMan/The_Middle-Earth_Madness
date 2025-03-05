@@ -2,6 +2,8 @@ package middleearth;
 
 import java.util.Scanner;
 
+import middleearth.management.CharacterManager;
+
 public class Menu {
 	private Scanner scanner;
 	private CharacterManager characterManager;

@@ -1,5 +1,7 @@
 package middleearth.management;
 
+import middleearth.characters.MiddleEarthCharacter;
+
 public class CharacterManager {
 	private MiddleEarthCharacter[] characters = new MiddleEarthCharacter[5]; 
 	private int size;
@@ -8,10 +10,10 @@ public class CharacterManager {
 	{
 		if(characters.length == size) 
 		{
-			MiddleEarthCharacter temp = new MiddleEarthCharacter[size * 2];
+			MiddleEarthCharacter[] temp = new MiddleEarthCharacter[size * 2];
 			for(int j = 0; j < size; j++) 
 			{
-				temp[j] = characters[j]
+				temp[j] = characters[j];
 			}
 			temp[size+1] = c;
 			characters = temp;
@@ -34,7 +36,7 @@ public class CharacterManager {
 	{
 		for(int i = 0; i < size; i++) 
 		{
-			if(character[i].name == name) 
+			if(characters[i].name == name) 
 			{
 				MiddleEarthCharacter copy = new MiddleEarthCharacter(character[i]);
 				return copy;
