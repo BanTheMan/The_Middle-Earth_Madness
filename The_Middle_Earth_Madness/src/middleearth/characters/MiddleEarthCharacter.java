@@ -2,9 +2,9 @@ package middleearth.characters;
 
 public abstract class MiddleEarthCharacter {
 	
-	public String name;
-	public double health;
-	public double power;
+	private String name;
+	private double health;
+	private double power;
 	
 	public MiddleEarthCharacter(String name, double health, double power) {
 		this.name = name;
@@ -12,6 +12,30 @@ public abstract class MiddleEarthCharacter {
 		this.power = power;
 	}
 	
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void takeDamage(double damageTaken) {
+		this.health += damageTaken;
+	}
+
+	public void heal(double healAmount) {
+		this.health += healAmount;
+	}
+
+	public double getPower() {
+		return power;
+	}
+
+	public void setPower(double power) {
+		this.power = power;
+	}
+
 	abstract boolean attack(MiddleEarthCharacter target);
 	
 	abstract String getRace();

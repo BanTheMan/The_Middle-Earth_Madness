@@ -10,7 +10,7 @@ public class Human extends MiddleEarthCharacter {
 	boolean attack(MiddleEarthCharacter target) {
 		// Can also use target instanceof Race
 		if (target.getRace().equals("Wizard")) { 
-			target.health -= power * 1.5;
+			target.takeDamage(getPower());
 			return true;
 		}
 		else if (target.getRace().equals("Orc")
@@ -19,7 +19,7 @@ public class Human extends MiddleEarthCharacter {
 		}
 		else if (target.getRace().equals("Elf")
 				|| target.getRace().equals("Dwarf")) {
-			target.health -= power;
+			target.takeDamage(getPower());
 			return true;
 		}
 		return false;
