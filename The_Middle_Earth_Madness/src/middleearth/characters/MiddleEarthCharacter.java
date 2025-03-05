@@ -20,8 +20,12 @@ public abstract class MiddleEarthCharacter {
 		this.name = name;
 	}
 	
-	public double getHealth(double health) {
+	public double getHealth() {
 		return this.health;
+	}
+	
+	public void setHealth(double health) {
+		this.health = health;
 	}
 
 	public void takeDamage(double damageTaken) {

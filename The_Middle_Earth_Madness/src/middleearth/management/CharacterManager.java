@@ -63,19 +63,19 @@ public class CharacterManager {
 			{
 				if(characters[i].getName() != name) 
 				{
-					characters[i].name = name;
+					characters[i].setName(name);
 					check++;
 				}
 				
-				if(characters[i].health != health) 
+				if(characters[i].getHealth() != health) 
 				{
-					characters[i].health = health;
+					characters[i].setHealth(health);
 					check++;
 				}
 				
-				if(characters[i].power != power) 
+				if(characters[i].getPower() != power) 
 				{
-					characters[i].power = power;
+					characters[i].setPower(power);
 					check++;
 				}
 			}
