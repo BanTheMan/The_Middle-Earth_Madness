@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 import middleearth.management.CharacterManager;
 
+import middleearth.characters.MiddleEarthCharacter;
+
 public class Menu {
 	private Scanner scanner;
 	private CharacterManager characterManager;
@@ -22,11 +24,25 @@ public class Menu {
 				
 	}
 	
-	public String createCharacter() {
+	public MiddleEarthCharacter createCharacterMenu() {
+		System.out.println("Creating a new character.\n");
+		System.out.println("Please select a number to choose your character's race:\n")
+		System.out.println("1. Dwarf\n");
+		System.out.println("2. Elf\n");
+		System.out.println("3. Human\n");
+		System.out.println("4. Orc\n");
+		System.out.println("5. Wizard\n");
+		System.out.println("Please enter an input:\n");
+		
+		int choice = scanner.nextInt();
+		scanner.nextLine();
+		
+		switch (choice) {
+		scanner.nextLine();
 		
 		
-		
-		
+		}
+	
 	}
 	
 	public void displayMenu() {
@@ -56,7 +72,9 @@ public class Menu {
 				
 				case 3: // Consider given the user the option to choose which character to update
 					System.out.println("Input 3 selected.\n");
-					// Select a character 
+					
+					
+					
 					String givenName = selectCharacter();
 					characterManager.updateCharacter(characterManager.getCharacter(givenName)); // Ask and pass the character and stats to update
 					break;

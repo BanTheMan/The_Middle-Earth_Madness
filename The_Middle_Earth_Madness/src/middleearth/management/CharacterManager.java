@@ -58,7 +58,7 @@ public class CharacterManager {
 		{
 			if (characters[i] == character)
 			{
-				if(characters[i].name != name) 
+				if(characters[i].getName() != name) 
 				{
 					characters[i].name = name;
 					check++;
