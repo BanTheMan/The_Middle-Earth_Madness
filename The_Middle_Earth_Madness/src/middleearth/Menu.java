@@ -122,6 +122,19 @@ public class Menu {
 	}
 	
 	public void executeAttacks() {
+		
+		while(true) {
+		System.out.println("Welcome to the Battlefield.");
+		System.out.println("1. Actiavte Battle");
+		System.out.println("2.Exit Battlefield");
+		
+		int choice = scanner.nextInt();
+		scanner.nextLine();
+		
+		switch (choice) {
+		
+		case 1:
+		
 		System.out.println("Enter the name of the character that will ATTACK:");
 		this.characterManager.displayAllCharacters();
 		String attackerName = scanner.next();
@@ -132,8 +145,14 @@ public class Menu {
 		String victimName = scanner.next();
 		MiddleEarthCharacter victim = this.characterManager.getCharacter(attackerName);
 		attacker.attack(victim);
+		break;
 		
+		case 2:
+			System.out.println("Exiting Battlefield.");
+			return;
 		
+			}
+		}
 		
 	}
 
@@ -160,7 +179,7 @@ public class Menu {
 						break;
 					}
 					
-					this.characterManager.addCharacter(newCharacter); // Use given information to create and pass a character instance
+					this.characterManager.addCharacter(newCharacter); 
 					break;
 				
 				case 2: //Viewing all characters
@@ -187,12 +206,12 @@ public class Menu {
 					System.out.println("Selecting a character to delete.");
 					String deleteCharacterName = selectCharacter();
 					MiddleEarthCharacter characterToDelete = this.characterManager.getCharacter(deleteCharacterName);
-					this.characterManager.deleteCharacter(characterToDelete); // Ask for and pass appropriate character
+					this.characterManager.deleteCharacter(characterToDelete); 
 					break;
 					
 				case 5: //Execute all character attack actions
 					System.out.println("Input 5 selected.\n");
-					executeAttacks(); // No function exists, may need to call individually
+					executeAttacks(); 
 					break;
 					
 				case 6: //Exit
