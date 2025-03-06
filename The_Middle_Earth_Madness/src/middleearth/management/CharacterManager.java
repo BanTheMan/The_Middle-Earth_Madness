@@ -166,7 +166,7 @@ public class CharacterManager {
 	 * @param None, just called.
 	 * @return Nothing, just prints all of the characters in the manager.
 	 */
-	void displayAllCharacters() 
+	public void displayAllCharacters() 
 	{
 		for(MiddleEarthCharacter character: characters)
 		{

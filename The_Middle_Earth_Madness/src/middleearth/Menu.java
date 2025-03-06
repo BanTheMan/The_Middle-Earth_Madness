@@ -7,19 +7,21 @@ import middleearth.management.*;
 
 public class Menu {
 	private Scanner scanner;
+	private MiddleEarthCouncil council;
 	private CharacterManager characterManager;
 
 
 
 	public Menu() {
 		this.scanner = new Scanner(System.in);
-		this.characterManager = new CharacterManager();
+		this.council = MiddleEarthCouncil.getInstance();
+		this.characterManager = this.council.getCharacterManager();
 	}
 	
 	public String selectCharacter() {
 		System.out.println("Please input the character's name you wish to select.");
 		System.out.println("List of available characters:");
-		characterManager.displayAllCharacters();
+		this.characterManager.displayAllCharacters();
 		
 		String characterName = scanner.next();
 		System.out.println("You selected " + characterName);
