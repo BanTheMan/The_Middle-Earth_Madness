@@ -40,7 +40,6 @@ public class CharacterManager {
 			{
 				if(characters[i] == null) {
 					characters[i] = c;
-					size++;
 					return true;
 				}
 			}

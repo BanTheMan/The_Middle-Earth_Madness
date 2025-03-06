@@ -109,7 +109,8 @@ public abstract class MiddleEarthCharacter {
 				this.name + ":" +
 				"\nHealth: " + this.health +
 				"\nPower: " + this.power +
-				"\nRace: " + getRace()
+				"\nRace: " + getRace() + 
+				"\n"
 				);
 	}
 }
