@@ -30,16 +30,17 @@ public class CharacterManager {
 				{
 					temp[j] = characters[j];
 				}
+				temp[size] = c;
 				characters = temp;
+				size++;
 				return true;
 			}
-
-			size++;
 				
 			for(int i = 0; i < size; i++) 
 			{
 				if(characters[i] == null) {
 					characters[i] = c;
+					size++;
 					return true;
 				}
 			}
@@ -149,7 +150,7 @@ public class CharacterManager {
 	{
 		if(character != null) 
 		{
-		MiddleEarthCharacter[] temp = new MiddleEarthCharacter[size];
+		MiddleEarthCharacter[] temp = new MiddleEarthCharacter[this.characters.length-1];
 		for(int i = 0; i < size; i++) 
 		{
 			if(this.characters[i] != character && this.characters[i] != null) 
