@@ -123,7 +123,14 @@ public class Menu {
 	
 	public void executeAttacks() {
 		System.out.println("Executing all character attacks.");
-		this.characterManger.displayAllCharacters(;)
+		
+		for (MiddleEarthCharacter character : listOfCharacters)
+		{
+			
+			
+			
+			
+		}
 		
 		
 		
