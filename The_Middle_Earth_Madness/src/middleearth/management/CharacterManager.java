@@ -1,38 +1,41 @@
 package middleearth.management;
 
 import middleearth.characters.Elf;
+import middleearth.characters.Dwarf;
+import middleearth.characters.Orc;
+import middleearth.characters.Wizard;
+import middleearth.characters.Human;
 import middleearth.characters.MiddleEarthCharacter;
 
 public class CharacterManager {
 	private MiddleEarthCharacter[] characters = new MiddleEarthCharacter[5]; 
-	private int size;
+	private int size = 0;
 	
 	public boolean addCharacter(MiddleEarthCharacter c) 
 	{
-		if(characters.length == size) 
-		{
-			MiddleEarthCharacter[] temp = new MiddleEarthCharacter[size * 2];
-			for (MiddleEarthCharacter character : characters) {
-				// example
-			}
-			for(int j = 0; j < size; j++) 
+		if(c != null) {
+			if(characters.length == size) 
 			{
-				temp[j] = characters[j];
-			}
-			temp[size+1] = c;
-			characters = temp;
-			size++;
-			return true;
-		}
-			
-		for(int i = 0; i < size; i++) 
-		{
-			if(characters[i] == null) {
-				characters[i] = c;
+				MiddleEarthCharacter[] temp = new MiddleEarthCharacter[size * 2];
+				for(int j = 0; j < size; j++) 
+				{
+					temp[j] = characters[j];
+				}
+				temp[size+1] = c;
+				characters = temp;
 				size++;
 				return true;
 			}
-		}
+				
+			for(int i = 0; i < size; i++) 
+			{
+				if(characters[i] == null) {
+					characters[i] = c;
+					size++;
+					return true;
+				}
+			}
+	}
 	return false;	
 	}
 	
@@ -42,14 +45,38 @@ public class CharacterManager {
 		{
 			if(characters[i].getName().equals(name)) 
 			{
-				MiddleEarthCharacter copy = new Elf(
+				switch(characters[i].getRace()) 
+				{
+				case 'Elf': MiddleEarthCharacter copy = new Elf(
 						characters[i].getName(), 
-						characters[i].getHealth(i), 
+						characters[i].getHealth(), 
 						characters[i].getPower());
-				characters[i].getRace();
-				// Look at constructor parameters and pass them by retrieving them from the character
-				// Make a copy of the character as their respective class - may require switch case
-				return copy;
+					return copy;
+				
+				case 'Orc': MiddleEarthCharacter copy = new Orc(
+						characters[i].getName(), 
+						characters[i].getHealth(), 
+						characters[i].getPower());
+					return copy;
+				
+				case 'Human': MiddleEarthCharacter copy = new Human(
+						characters[i].getName(), 
+						characters[i].getHealth(), 
+						characters[i].getPower());
+					return copy;
+				
+				case 'Wizard': MiddleEarthCharacter copy = new Wizard(
+						characters[i].getName(), 
+						characters[i].getHealth(), 
+						characters[i].getPower());
+					return copy;
+				
+				case 'Dwarf': MiddleEarthCharacter copy = new Dwarf(
+						characters[i].getName(), 
+						characters[i].getHealth(), 
+						characters[i].getPower());
+					return copy;
+				}
 			}
 		}
 	}
@@ -95,10 +122,12 @@ public class CharacterManager {
 	
 	boolean deleteCharacter(MiddleEarthCharacter character) 
 	{
+		if(character != null) 
+		{
 		MiddleEarthCharacter[] temp = new MiddleEarthCharacter[size];
 		for(int i = 0; i < size; i++) 
 		{
-			if(characters[i] != character) 
+			if(characters[i] != character && characters[i] != null) 
 			{
 				temp[i] = characters[i];
 			}
@@ -107,6 +136,8 @@ public class CharacterManager {
 		characters = temp;
 		size--;
 		return true;
+		}
+		return false;
 	}
 	
 	public void displayAllCharacters() 
