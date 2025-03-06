@@ -2,13 +2,8 @@ package middleearth;
 
 import java.util.Scanner;
 
-import middleearth.management.CharacterManager;
-import middleearth.characters.MiddleEarthCharacter;
-import middleearth.characters.Dwarf;
-import middleearth.characters.Elf;
-import middleearth.characters.Human;
-import middleearth.characters.Orc;
-import middleearth.characters.Wizard;
+import middleearth.characters.*;
+import middleearth.management.*;
 
 public class Menu {
 	private Scanner scanner;
@@ -152,8 +147,8 @@ public class Menu {
 				
 				case 3: //Update a character
 					System.out.println("Input 3 selected.");
-					
-					
+					String updateCharacterName = selectCharacter();
+					MiddleEarthCharacter characterToUpdate = characterManager.getCharacter(updateCharacterName);
 					break;
 					
 				case 4: //Delete a character
