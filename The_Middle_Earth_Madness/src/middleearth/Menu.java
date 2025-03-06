@@ -15,7 +15,7 @@ public class Menu {
 	public Menu() {
 		this.scanner = new Scanner(System.in);
 		this.council = MiddleEarthCouncil.getInstance();
-		this.characterManager = this.council.getCharacterManager();
+		this.characterManager = council.getCharacterManager();
 	}
 	
 	public String selectCharacter() {
@@ -122,8 +122,16 @@ public class Menu {
 	}
 	
 	public void executeAttacks() {
-		System.out.println("Executing all character attacks.");
-		this.characterManger.displayAllCharacters(;)
+		System.out.println("Enter the name of the character that will ATTACK:");
+		this.characterManager.displayAllCharacters();
+		String attackerName = scanner.next();
+		MiddleEarthCharacter attacker = this.characterManager.getCharacter(attackerName);
+		
+		System.out.println("Enter the name of the character that will BE ATTACKED:");
+		this.characterManager.displayAllCharacters();
+		String victimName = scanner.next();
+		MiddleEarthCharacter victim = this.characterManager.getCharacter(attackerName);
+		attacker.attack(victim);
 		
 		
 		
@@ -152,28 +160,34 @@ public class Menu {
 						break;
 					}
 					
-					characterManager.addCharacter(newCharacter); // Use given information to create and pass a character instance
+					this.characterManager.addCharacter(newCharacter); // Use given information to create and pass a character instance
 					break;
 				
 				case 2: //Viewing all characters
 					System.out.println("Input 2 selected.");
-					characterManager.displayAllCharacters();
+					this.characterManager.displayAllCharacters();
 					break;
 				
 				case 3: //Update a character
 					System.out.println("Input 3 selected.");
 					System.out.println("Selecting a character to update.");
 					String updateCharacterName = selectCharacter();
-					MiddleEarthCharacter characterToUpdate = characterManager.getCharacter(updateCharacterName);
-					characterManager.updateCharacter(characterToUpdate);
+					MiddleEarthCharacter characterToUpdate = this.characterManager.getCharacter(updateCharacterName);
+					System.out.println("Input character's new name: (Current name: " + characterToUpdate.getName() + "");
+					String newName = scanner.next();
+					System.out.println("Input character's new health: (Current health: " + characterToUpdate.getHealth() + "");
+					int newHealth = scanner.nextInt();
+					System.out.println("Input character's new power: (Current power: " + characterToUpdate.getPower() + "");
+					int newPower = scanner.nextInt();
+					this.characterManager.updateCharacter(characterToUpdate, newName, newHealth, newPower);
 					break;
 					
 				case 4: //Delete a character
 					System.out.println("Input 4 selected.\n");
 					System.out.println("Selecting a character to delete.");
 					String deleteCharacterName = selectCharacter();
-					MiddleEarthCharacter characterToDelete = characterManager.getCharacter(deleteCharacterName);
-					characterManager.deleteCharacter(characterToDelete); // Ask for and pass appropriate character
+					MiddleEarthCharacter characterToDelete = this.characterManager.getCharacter(deleteCharacterName);
+					this.characterManager.deleteCharacter(characterToDelete); // Ask for and pass appropriate character
 					break;
 					
 				case 5: //Execute all character attack actions
