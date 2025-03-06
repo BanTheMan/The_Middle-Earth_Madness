@@ -61,7 +61,7 @@ public abstract class MiddleEarthCharacter {
 	 * @param damageTaken by character
 	 */
 	public void takeDamage(double damageTaken) {
-		this.health += damageTaken;
+		this.health -= damageTaken;
 	}
 
 	/**

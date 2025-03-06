@@ -1,5 +1,6 @@
 package middleearth;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import middleearth.characters.*;
@@ -142,11 +143,18 @@ public class Menu {
 		
 		while(true) {
 		System.out.println("Welcome to the Battlefield.");
-		System.out.println("1. Actiavte Battle");
+		System.out.println("1. Activate Battle");
 		System.out.println("2.Exit Battlefield");
 		
-		int choice = scanner.nextInt();
-		scanner.nextLine();
+		int choice;
+        try {
+            choice = scanner.nextInt();
+            scanner.nextLine(); // Clear buffer
+        } catch (InputMismatchException e) {
+            scanner.nextLine(); // Clear bad input
+            System.out.println("Please enter a number.");
+            continue;
+        }
 		
 		switch (choice) {
 		
@@ -154,14 +162,26 @@ public class Menu {
 		
 		System.out.println("Enter the name of the character that will ATTACK:");
 		this.characterManager.displayAllCharacters();
-		String attackerName = scanner.next();
+		String attackerName = scanner.nextLine();
 		MiddleEarthCharacter attacker = this.characterManager.getCharacter(attackerName);
+		
+		if (attacker == null) {
+            System.out.println("Character not found. Please try again.");
+            continue;
+        }
 		
 		System.out.println("Enter the name of the character that will BE ATTACKED:");
 		this.characterManager.displayAllCharacters();
-		String victimName = scanner.next();
+		String victimName = scanner.nextLine();
 		MiddleEarthCharacter victim = this.characterManager.getCharacter(victimName);
+		
+		if (victim == null) {
+            System.out.println("Character not found. Please try again.");
+            continue;
+        }
+		
 		attacker.attack(victim);
+		this.characterManager.updateCharacter(victim, victim.getName(), (int)victim.getHealth(), (int)victim.getPower());
 		break;
 		
 		case 2:

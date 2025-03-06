@@ -14,6 +14,9 @@ public class Human extends MiddleEarthCharacter {
 
 	@Override
 	public boolean attack(MiddleEarthCharacter target) {
+		if (target == null) {
+	        return false;
+	    }
 		// Can also use target instanceof Race
 		if (target.getRace().equals("Wizard")) { 
 			target.takeDamage(getPower());

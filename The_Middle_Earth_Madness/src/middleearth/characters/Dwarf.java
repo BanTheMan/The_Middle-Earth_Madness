@@ -17,6 +17,9 @@ public class Dwarf extends MiddleEarthCharacter {
 
 	@Override
 	public boolean attack(MiddleEarthCharacter target) {
+		if (target == null) {
+	        return false;
+	    }
 		// Can also use target instanceof Race
 		if (target.getRace().equals("Elf")) { 
 			target.takeDamage(getPower() * 1.5);

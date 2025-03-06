@@ -14,6 +14,9 @@ public class Wizard extends MiddleEarthCharacter {
 
 	@Override
 	public boolean attack(MiddleEarthCharacter target) {
+		if (target == null) {
+	        return false;
+	    }
 		// Can also use target instanceof Race
 		if (target.getRace().equals("Dwarf")) { 
 			target.takeDamage(getPower() * 1.5);

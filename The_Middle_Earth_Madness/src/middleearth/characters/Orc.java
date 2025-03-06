@@ -14,6 +14,9 @@ public class Orc extends MiddleEarthCharacter {
 
 	@Override
 	public boolean attack(MiddleEarthCharacter target) {
+		if (target == null) {
+	        return false;
+	    }
 		// Can also use target instanceof Race
 		if (target.getRace().equals("Human")) { 
 			target.takeDamage(getPower() * 1.5);
