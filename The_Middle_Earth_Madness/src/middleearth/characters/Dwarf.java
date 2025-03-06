@@ -5,6 +5,12 @@ package middleearth.characters;
  */
 public class Dwarf extends MiddleEarthCharacter {
 
+	/**
+	 * Dwarf character constructor
+	 * @param name of character
+	 * @param health of character
+	 * @param power of character
+	 */
 	public Dwarf(String name, double health, double power) {
 		super(name, health, power);
 	}

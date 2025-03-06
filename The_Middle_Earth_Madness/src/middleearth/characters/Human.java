@@ -2,6 +2,12 @@ package middleearth.characters;
 
 public class Human extends MiddleEarthCharacter {
 
+	/**
+	 * Human character constructor
+	 * @param name of character
+	 * @param health of character
+	 * @param power of character
+	 */
 	public Human(String name, double health, double power) {
 		super(name, health, power);
 	}

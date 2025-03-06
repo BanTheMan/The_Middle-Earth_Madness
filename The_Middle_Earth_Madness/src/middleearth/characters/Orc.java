@@ -2,6 +2,12 @@ package middleearth.characters;
 
 public class Orc extends MiddleEarthCharacter {
 
+	/**
+	 * Orc character constructor
+	 * @param name of character
+	 * @param health of character
+	 * @param power of character
+	 */
 	public Orc(String name, double health, double power) {
 		super(name, health, power);
 	}

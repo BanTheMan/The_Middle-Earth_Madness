@@ -2,6 +2,12 @@ package middleearth.characters;
 
 public class Wizard extends MiddleEarthCharacter {
 
+	/**
+	 * Wizard character constructor
+	 * @param name of character
+	 * @param health of character
+	 * @param power of character
+	 */
 	public Wizard(String name, double health, double power) {
 		super(name, health, power);
 	}

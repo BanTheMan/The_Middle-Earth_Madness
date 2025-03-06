@@ -12,12 +12,19 @@ public class Menu {
 
 
 
+	/**
+	 * Menu constructor
+	 */
 	public Menu() {
 		this.scanner = new Scanner(System.in);
 		this.council = MiddleEarthCouncil.getInstance();
 		this.characterManager = council.getCharacterManager();
 	}
 	
+	/**
+	 * Select a character
+	 * @return name of character selected
+	 */
 	public String selectCharacter() {
 		System.out.println("Please input the character's name you wish to select.");
 		System.out.println("List of available characters:");
@@ -29,6 +36,10 @@ public class Menu {
 				
 	}
 	
+	/**
+	 * Create a new character
+	 * @return new character object
+	 */
 	public MiddleEarthCharacter createCharacterMenu() {
 		System.out.println("Creating a new character.");
 		System.out.println("Please select a number to choose your character's race:");
@@ -121,6 +132,9 @@ public class Menu {
 	
 	}
 	
+	/**
+	 * Select character attack actions
+	 */
 	public void executeAttacks() {
 		
 		while(true) {
@@ -143,7 +157,7 @@ public class Menu {
 		System.out.println("Enter the name of the character that will BE ATTACKED:");
 		this.characterManager.displayAllCharacters();
 		String victimName = scanner.next();
-		MiddleEarthCharacter victim = this.characterManager.getCharacter(attackerName);
+		MiddleEarthCharacter victim = this.characterManager.getCharacter(victimName);
 		attacker.attack(victim);
 		break;
 		
@@ -156,6 +170,9 @@ public class Menu {
 		
 	}
 
+	/**
+	 * Display user interface
+	 */
 	public void displayMenu() {
 		while (true) {
 			System.out.println("\n --== Middle Earth Character Menu ==--");

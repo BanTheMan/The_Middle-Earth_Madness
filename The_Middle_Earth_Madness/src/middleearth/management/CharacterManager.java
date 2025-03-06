@@ -16,7 +16,8 @@ public class CharacterManager {
 	private int size = 0;
 	
 	/**
-	 * @param Character to be added to the manager/array.
+	 * Add character
+	 * @param c character to be added to the manager/array.
 	 * @return True or False based on whether the character was added or not.
 	 */
 	public boolean addCharacter(MiddleEarthCharacter c) 
@@ -48,7 +49,8 @@ public class CharacterManager {
 	}
 	
 	/**
-	 * @param Name to be searched for in the manager.
+	 * Retrieve character
+	 * @param name to be searched for in the manager.
 	 * @return A copy of the character that matches the name given.
 	 */
 	public MiddleEarthCharacter getCharacter(String name) 
@@ -97,7 +99,8 @@ public class CharacterManager {
 	}
 	
 	/**
-	 * @param Character to be updated, the name, health, and power to be inserted if need be.
+	 * Update character
+	 * @param character to be updated, the name, health, and power to be inserted if need be.
 	 * @return true or false based on if there was an update made to a character or not.
 	 */
 	public boolean updateCharacter (MiddleEarthCharacter character, String name, int health, int power) 
@@ -139,7 +142,8 @@ public class CharacterManager {
 	}
 	
 	/**
-	 * @param Character to be deleted.
+	 * Delete character
+	 * @param character to be deleted.
 	 * @return true or false depending on if a character was deleted or not by the function.
 	 */
 	public boolean deleteCharacter(MiddleEarthCharacter character) 
@@ -163,8 +167,7 @@ public class CharacterManager {
 	}
 	
 	/**
-	 * @param None, just called.
-	 * @return Nothing, just prints all of the characters in the manager.
+	 * Display all character information
 	 */
 	public void displayAllCharacters() 
 	{
