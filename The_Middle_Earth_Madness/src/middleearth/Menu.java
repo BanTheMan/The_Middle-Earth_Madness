@@ -139,7 +139,7 @@ public class Menu {
 						break;
 					}
 					
-					characterManager.addCharacter(newCharacter); // Use given information to create and pass a character instance
+					this.characterManager.addCharacter(newCharacter); // Use given information to create and pass a character instance
 					break;
 				
 				case 2: //Viewing all characters
