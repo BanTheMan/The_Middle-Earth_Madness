@@ -7,10 +7,15 @@ import middleearth.characters.Wizard;
 import middleearth.characters.Human;
 import middleearth.characters.MiddleEarthCharacter;
 
+// Author: Ivan (The Terrible) R.
 public class CharacterManager {
 	private MiddleEarthCharacter[] characters = new MiddleEarthCharacter[5]; 
 	private int size = 0;
 	
+	/**
+	 * @param Character to be added to the manager/array.
+	 * @return True or False based on wther the character was added or not.
+	 */
 	public boolean addCharacter(MiddleEarthCharacter c) 
 	{
 		if(c != null) {
@@ -39,40 +44,43 @@ public class CharacterManager {
 	return false;	
 	}
 	
+	/**
+	 * @param Name to be searched for in the manager.
+	 * @return A copy of the character that matches the name given.
+	 */
 	MiddleEarthCharacter getCharacter(String name) 
 	{
-		MiddleEarthCharacter copy = null;
 		for(int i = 0; i < size; i++) 
 		{
 			if(characters[i].getName().equals(name)) 
 			{
 				switch(characters[i].getRace()) 
 				{
-				case "Elf": copy = new Elf(
+				case 'Elf': MiddleEarthCharacter copy = new Elf(
 						characters[i].getName(), 
 						characters[i].getHealth(), 
 						characters[i].getPower());
 					return copy;
 				
-				case "Orc": copy = new Orc(
+				case 'Orc': MiddleEarthCharacter copy = new Orc(
 						characters[i].getName(), 
 						characters[i].getHealth(), 
 						characters[i].getPower());
 					return copy;
 				
-				case "Human": copy = new Human(
+				case 'Human': MiddleEarthCharacter copy = new Human(
 						characters[i].getName(), 
 						characters[i].getHealth(), 
 						characters[i].getPower());
 					return copy;
 				
-				case "Wizard": copy = new Wizard(
+				case 'Wizard': MiddleEarthCharacter copy = new Wizard(
 						characters[i].getName(), 
 						characters[i].getHealth(), 
 						characters[i].getPower());
 					return copy;
 				
-				case "Dwarf": copy = new Dwarf(
+				case 'Dwarf': MiddleEarthCharacter copy = new Dwarf(
 						characters[i].getName(), 
 						characters[i].getHealth(), 
 						characters[i].getPower());
@@ -80,9 +88,12 @@ public class CharacterManager {
 				}
 			}
 		}
-		return copy;
 	}
 	
+	/**
+	 * @param Character to be updated, the name, health, and power to be inserted if need be.
+	 * @return true or false based on if there was an update made to a character or not.
+	 */
 	boolean updateCharacter (MiddleEarthCharacter character, String name, int health, int power) 
 	{
 		int check = 0;
@@ -121,7 +132,10 @@ public class CharacterManager {
 		}
 	}
 	
-	
+	/**
+	 * @param Character to be deleted.
+	 * @return true or false depending on if a character was deleted or not by the function.
+	 */
 	boolean deleteCharacter(MiddleEarthCharacter character) 
 	{
 		if(character != null) 
@@ -142,6 +156,10 @@ public class CharacterManager {
 		return false;
 	}
 	
+	/**
+	 * @param None, just called.
+	 * @return Nothing, just prints all of the characters in the manager.
+	 */
 	public void displayAllCharacters() 
 	{
 		for(MiddleEarthCharacter character: characters)
