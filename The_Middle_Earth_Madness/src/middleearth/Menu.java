@@ -152,7 +152,7 @@ public class Menu {
 				
 				case 3: //Update a character
 					System.out.println("Input 3 selected.");
-					System.out.println("Please type the characater you wish to update:");
+					
 					
 					break;
 					
