@@ -100,7 +100,7 @@ public class CharacterManager {
 	 * @param Character to be updated, the name, health, and power to be inserted if need be.
 	 * @return true or false based on if there was an update made to a character or not.
 	 */
-	boolean updateCharacter (MiddleEarthCharacter character, String name, int health, int power) 
+	public boolean updateCharacter (MiddleEarthCharacter character, String name, int health, int power) 
 	{
 		int check = 0;
 		for(int i = 0; i < size; i++) 
