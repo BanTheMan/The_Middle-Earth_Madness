@@ -147,12 +147,15 @@ public class Menu {
 				
 				case 3: //Update a character
 					System.out.println("Input 3 selected.");
+					System.out.println("Selecting a character to update.");
 					String updateCharacterName = selectCharacter();
 					MiddleEarthCharacter characterToUpdate = characterManager.getCharacter(updateCharacterName);
 					break;
 					
 				case 4: //Delete a character
 					System.out.println("Input 4 selected.\n");
+					System.out.println("Selecting a character to delete.");
+					String deleteCharacterName = selectCharacter();
 					characterManager.deleteCharacter(); // Ask for and pass appropriate character
 					break;
 					
