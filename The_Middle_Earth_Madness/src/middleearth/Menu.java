@@ -41,6 +41,8 @@ public class Menu {
 		int choice = scanner.nextInt();
 		scanner.nextLine();
 		
+		MiddleEarthCharacter newCharacter = null;
+		
 		switch (choice) {
 			case 1:
 				System.out.println("Please choose your Dwarf's name:");
@@ -52,8 +54,7 @@ public class Menu {
 				double powerD = scanner.nextDouble();
 				scanner.nextLine();
 				
-				MiddleEarthCharacter newDwarf = new Dwarf(nameD, healthD, powerD);
-				return newDwarf;
+				newCharacter = new Dwarf(nameD, healthD, powerD);
 
 			case 2:
 				System.out.println("Please choose your Elf's name:");
@@ -65,8 +66,7 @@ public class Menu {
 				double powerE = scanner.nextDouble();
 				scanner.nextLine();
 				
-				MiddleEarthCharacter newElf = new Elf(nameE, healthE, powerE);
-				return newElf;
+				newCharacter = new Elf(nameE, healthE, powerE);
 				
 			case 3:
 				System.out.println("Please choose your Human's name:");
@@ -78,8 +78,7 @@ public class Menu {
 				double powerH = scanner.nextDouble();
 				scanner.nextLine();
 				
-				MiddleEarthCharacter newHuman = new Human(nameH, healthH, powerH);
-				return newHuman;
+				newCharacter = new Human(nameH, healthH, powerH);
 				
 			case 4:
 				System.out.println("Please choose your Orc's name:");
@@ -91,8 +90,7 @@ public class Menu {
 				double powerO = scanner.nextDouble();
 				scanner.nextLine();
 				
-				MiddleEarthCharacter newOrc = new Orc(nameO, healthO, powerO);
-				return newOrc;
+				newCharacter = new Orc(nameO, healthO, powerO);
 		
 			case 5:
 				System.out.println("Please choose your Wizard's name:");
@@ -104,11 +102,17 @@ public class Menu {
 				double powerW = scanner.nextDouble();
 				scanner.nextLine();
 				
-				MiddleEarthCharacter newWizard = new Wizard(nameW, healthW, powerW);
-				return newWizard;
+				newCharacter = new Wizard(nameW, healthW, powerW);
 		
 			
 		}
+		
+		if (newCharacter == null) 
+		{
+			System.out.println("ERROR: Character creation failed.");
+		}
+		
+		return newCharacter;
 	
 	}
 	
@@ -127,36 +131,39 @@ public class Menu {
 			scanner.nextLine();
 			
 			switch (choice) {
-				case 1: // Consider asking them to choose a race and amount of health & power
+				case 1: //Adding new character
 					System.out.println("Input 1 selected.\n");
-					characterManager.addCharacter(); // Use given information to create and pass a character instance
+					MiddleEarthCharacter newCharacter = createCharacterMenu();
+					if(newCharacter == null)
+					{
+						break;
+					}
+					
+					characterManager.addCharacter(newCharacter); // Use given information to create and pass a character instance
 					break;
 				
-				case 2:
+				case 2: //Viewing all characters
 					System.out.println("Input 2 selected.\n");
 					characterManager.displayAllCharacters();
 					break;
 				
-				case 3: //DO THIS
+				case 3: //Update a character
 					System.out.println("Input 3 selected.\n");
-					
-					
-					
 					String givenName = selectCharacter();
 					characterManager.updateCharacter(characterManager.getCharacter(givenName)); // Ask and pass the character and stats to update
 					break;
 					
-				case 4:
+				case 4: //Delete a character
 					System.out.println("Input 4 selected.\n");
 					characterManager.deleteCharacter(); // Ask for and pass appropriate character
 					break;
 					
-				case 5: // Consider creating an interface for selecting who attacks who
+				case 5: //Execute all character attack actions
 					System.out.println("Input 5 selected.\n");
 					characterManager.executeAttacks(); // No function exists, may need to call individually
 					break;
 					
-				case 6:
+				case 6: //Exit
 					System.out.println("Input 6 selected.\n");
 					System.out.println("Exiting system.\n");
 					scanner.close();
