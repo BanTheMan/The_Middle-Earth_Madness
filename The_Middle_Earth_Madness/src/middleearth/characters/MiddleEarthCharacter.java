@@ -107,9 +107,9 @@ public abstract class MiddleEarthCharacter {
 	public void displayInfo() {
 		System.out.println(
 				this.name + ":" +
-				"Health: " + this.health +
-				"Power: " + this.power +
-				"Race: " + getRace()
+				"\nHealth: " + this.health +
+				"\nPower: " + this.power +
+				"\nRace: " + getRace()
 				);
 	}
 }

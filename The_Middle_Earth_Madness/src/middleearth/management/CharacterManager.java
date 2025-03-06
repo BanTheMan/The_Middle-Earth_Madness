@@ -25,16 +25,16 @@ public class CharacterManager {
 		if(c != null) {
 			if(characters.length == size) 
 			{
-				MiddleEarthCharacter[] temp = new MiddleEarthCharacter[size * 2];
+				MiddleEarthCharacter[] temp = new MiddleEarthCharacter[characters.length * 2];
 				for(int j = 0; j < size; j++) 
 				{
 					temp[j] = characters[j];
 				}
-				temp[size+1] = c;
 				characters = temp;
-				size++;
 				return true;
 			}
+
+			size++;
 				
 			for(int i = 0; i < size; i++) 
 			{
@@ -44,7 +44,7 @@ public class CharacterManager {
 					return true;
 				}
 			}
-	}
+		}
 	return false;	
 	}
 	
@@ -106,7 +106,7 @@ public class CharacterManager {
 	public boolean updateCharacter (MiddleEarthCharacter character, String name, int health, int power) 
 	{
 		int check = 0;
-		for(int i = 0; i < size; i++) 
+		for(int i = 0; i < this.characters.length; i++) 
 		{
 			if (this.characters[i] == character)
 			{

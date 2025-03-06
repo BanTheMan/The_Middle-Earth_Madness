@@ -215,11 +215,11 @@ public class Menu {
 					System.out.println("Selecting a character to update.");
 					String updateCharacterName = selectCharacter();
 					MiddleEarthCharacter characterToUpdate = this.characterManager.getCharacter(updateCharacterName);
-					System.out.println("Input character's new name: (Current name: " + characterToUpdate.getName() + "");
+					System.out.println("Input character's new name: (Current name: " + characterToUpdate.getName() + ")");
 					String newName = scanner.next();
-					System.out.println("Input character's new health: (Current health: " + characterToUpdate.getHealth() + "");
+					System.out.println("Input character's new health: (Current health: " + characterToUpdate.getHealth() + ")");
 					int newHealth = scanner.nextInt();
-					System.out.println("Input character's new power: (Current power: " + characterToUpdate.getPower() + "");
+					System.out.println("Input character's new power: (Current power: " + characterToUpdate.getPower() + ")");
 					int newPower = scanner.nextInt();
 					this.characterManager.updateCharacter(characterToUpdate, newName, newHealth, newPower);
 					break;
