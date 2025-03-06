@@ -120,6 +120,9 @@ public class Menu {
 				
 				newCharacter = new Wizard(nameW, healthW, powerW);
 				break;
+				
+			default:
+				System.out.println("Invalid input. Please try again.\n");
 		
 		}
 		
@@ -164,6 +167,9 @@ public class Menu {
 		case 2:
 			System.out.println("Exiting Battlefield.");
 			return;
+			
+		default:
+			System.out.println("Invalid input. Please try again.\n");
 		
 			}
 		}
