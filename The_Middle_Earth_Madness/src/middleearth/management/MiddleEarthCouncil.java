@@ -3,7 +3,11 @@ package middleearth.management;
 public class MiddleEarthCouncil {
 
 	private static MiddleEarthCouncil instance;
-	private MiddleEarthCouncil() {}
+	private CharacterManager characterManager;
+	
+	private MiddleEarthCouncil() {
+		this.characterManager = new CharacterManager();
+	}
 	
 	public static MiddleEarthCouncil getInstance() 
 	{
@@ -14,6 +18,6 @@ public class MiddleEarthCouncil {
 	}
 	
 	public CharacterManager getCharacterManager() {
-		return new CharacterManager();
+		return this.characterManager;
 	}
 }

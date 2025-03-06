@@ -33,7 +33,7 @@ public abstract class MiddleEarthCharacter {
 	}
 
 	/**
-	 * Set 
+	 * Set name of character
 	 * @param name - new character name
 	 */
 	public void setName(String name) {
@@ -41,6 +41,7 @@ public abstract class MiddleEarthCharacter {
 	}
 	
 	/**
+	 * Get current health of character
 	 * @return health of character
 	 */
 	public double getHealth() {
@@ -48,6 +49,7 @@ public abstract class MiddleEarthCharacter {
 	}
 	
 	/**
+	 * Set character health
 	 * @param health - new health of character
 	 */
 	public void setHealth(double health) {
@@ -55,6 +57,7 @@ public abstract class MiddleEarthCharacter {
 	}
 
 	/**
+	 * Decrease character health
 	 * @param damageTaken by character
 	 */
 	public void takeDamage(double damageTaken) {
@@ -62,6 +65,7 @@ public abstract class MiddleEarthCharacter {
 	}
 
 	/**
+	 * Increase character health
 	 * @param healAmount - increase health by
 	 */
 	public void heal(double healAmount) {
@@ -69,6 +73,7 @@ public abstract class MiddleEarthCharacter {
 	}
 
 	/**
+	 * Get power of character
 	 * @return power of character
 	 */
 	public double getPower() {
@@ -76,6 +81,7 @@ public abstract class MiddleEarthCharacter {
 	}
 
 	/**
+	 * Set power of character
 	 * @param power - new power of character
 	 */
 	public void setPower(double power) {
@@ -83,16 +89,21 @@ public abstract class MiddleEarthCharacter {
 	}
 
 	/**
+	 * Make character attack another character
 	 * @param target of attack
 	 * @return if attack hit
 	 */
 	public abstract boolean attack(MiddleEarthCharacter target);
 	
 	/**
-	 * @return
+	 * Get race of character
+	 * @return race of character
 	 */
 	public abstract String getRace();
 	
+	/**
+	 * Display character information
+	 */
 	public void displayInfo() {
 		System.out.println(
 				this.name + ":" +
