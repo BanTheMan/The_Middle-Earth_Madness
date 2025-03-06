@@ -181,6 +181,7 @@ public class Menu {
         }
 		
 		attacker.attack(victim);
+		System.out.println(victim.getHealth());
 		this.characterManager.updateCharacter(victim, victim.getName(), (int)victim.getHealth(), (int)victim.getPower());
 		break;
 		

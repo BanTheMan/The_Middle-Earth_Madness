@@ -30,13 +30,12 @@ public class CharacterManager {
 				{
 					temp[j] = characters[j];
 				}
-				temp[size] = c;
 				characters = temp;
-				size++;
-				return true;
 			}
+			
+			size++;
 				
-			for(int i = 0; i < size; i++) 
+			for(int i = 0; i < this.characters.length; i++) 
 			{
 				if(characters[i] == null) {
 					characters[i] = c;
@@ -105,31 +104,47 @@ public class CharacterManager {
 	 */
 	public boolean updateCharacter (MiddleEarthCharacter character, String name, int health, int power) 
 	{
-		int check = 0;
-		for(int i = 0; i < this.characters.length; i++) 
+		System.out.println(character);
+		System.out.println(characters);
+		//find index
+		int index = -1;
+		for(int i = 0; i < size; i++) 
 		{
-			if (this.characters[i] == character)
+			if(characters[i] != null && characters[i].getName().equals(name)) 
 			{
-				if(this.characters[i].getName() != name) 
-				{
-					this.characters[i].setName(name);
-					check++;
-				}
-				
-				if(this.characters[i].getHealth() != health) 
-				{
-					this.characters[i].setHealth(health);
-					check++;
-				}
-				
-				if(this.characters[i].getPower() != power) 
-				{
-					this.characters[i].setPower(power);
-					check++;
-				}
+					index = i;
+					break;
 			}
-			
 		}
+		if (index == -1) {
+			System.out.println("Couldn't find character.");
+			return false;
+		}
+		
+		MiddleEarthCharacter characterToUpdate = characters[index];
+		
+		int check = 0;
+		if(!characterToUpdate.getName().equals(name)) 
+		{
+			characterToUpdate.setName(name);
+			System.out.println(characterToUpdate.getName());
+			check++;
+		}
+		
+		if(characterToUpdate.getHealth() != health) 
+		{
+			characterToUpdate.setHealth(health);
+			System.out.println(characterToUpdate.getHealth());
+			check++;
+		}
+		
+		if(characterToUpdate.getPower() != power) 
+		{
+			characterToUpdate.setPower(power);
+			System.out.println(characterToUpdate.getPower());
+			check++;
+		}
+		
 		if(check > 0) 
 		{
 			return true;
