@@ -108,23 +108,23 @@ public class CharacterManager {
 		int check = 0;
 		for(int i = 0; i < size; i++) 
 		{
-			if (characters[i] == character)
+			if (this.characters[i] == character)
 			{
-				if(characters[i].getName() != name) 
+				if(this.characters[i].getName() != name) 
 				{
-					characters[i].setName(name);
+					this.characters[i].setName(name);
 					check++;
 				}
 				
-				if(characters[i].getHealth() != health) 
+				if(this.characters[i].getHealth() != health) 
 				{
-					characters[i].setHealth(health);
+					this.characters[i].setHealth(health);
 					check++;
 				}
 				
-				if(characters[i].getPower() != power) 
+				if(this.characters[i].getPower() != power) 
 				{
-					characters[i].setPower(power);
+					this.characters[i].setPower(power);
 					check++;
 				}
 			}
@@ -153,13 +153,13 @@ public class CharacterManager {
 		MiddleEarthCharacter[] temp = new MiddleEarthCharacter[size];
 		for(int i = 0; i < size; i++) 
 		{
-			if(characters[i] != character && characters[i] != null) 
+			if(this.characters[i] != character && this.characters[i] != null) 
 			{
-				temp[i] = characters[i];
+				temp[i] = this.characters[i];
 			}
 		}
 		
-		characters = temp;
+		this.characters = temp;
 		size--;
 		return true;
 		}
@@ -171,7 +171,7 @@ public class CharacterManager {
 	 */
 	public void displayAllCharacters() 
 	{
-		for(MiddleEarthCharacter character: characters)
+		for(MiddleEarthCharacter character: this.characters)
 		{
 			if (character != null) 
 			{
