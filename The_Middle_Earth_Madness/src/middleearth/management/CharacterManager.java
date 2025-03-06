@@ -23,7 +23,9 @@ public class CharacterManager {
 	public boolean addCharacter(MiddleEarthCharacter c) 
 	{
 		if(c != null) {
-			if(characters.length == size) 
+			System.out.println(characters.length);
+			System.out.println(size);
+			if(characters.length <= size) 
 			{
 				MiddleEarthCharacter[] temp = new MiddleEarthCharacter[characters.length * 2];
 				for(int j = 0; j < size; j++) 
@@ -39,7 +41,6 @@ public class CharacterManager {
 			{
 				if(characters[i] == null) {
 					characters[i] = c;
-					size++;
 					return true;
 				}
 			}
@@ -104,11 +105,9 @@ public class CharacterManager {
 	 */
 	public boolean updateCharacter (MiddleEarthCharacter character, String name, int health, int power) 
 	{
-		System.out.println(character);
-		System.out.println(characters);
 		//find index
 		int index = -1;
-		for(int i = 0; i < size; i++) 
+		for(int i = 0; i < characters.length; i++) 
 		{
 			if(characters[i] != null && characters[i].getName().equals(name)) 
 			{
@@ -127,21 +126,18 @@ public class CharacterManager {
 		if(!characterToUpdate.getName().equals(name)) 
 		{
 			characterToUpdate.setName(name);
-			System.out.println(characterToUpdate.getName());
 			check++;
 		}
 		
 		if(characterToUpdate.getHealth() != health) 
 		{
 			characterToUpdate.setHealth(health);
-			System.out.println(characterToUpdate.getHealth());
 			check++;
 		}
 		
 		if(characterToUpdate.getPower() != power) 
 		{
 			characterToUpdate.setPower(power);
-			System.out.println(characterToUpdate.getPower());
 			check++;
 		}
 		
@@ -163,22 +159,26 @@ public class CharacterManager {
 	 */
 	public boolean deleteCharacter(MiddleEarthCharacter character) 
 	{
-		if(character != null) 
+		if(character == null) {
+			System.out.println("Character not found.");
+			return false;
+		}
+		
+		MiddleEarthCharacter[] temp = new MiddleEarthCharacter[characters.length];
+		int newSize = 0;
+		
+		for(int i = 0; i < characters.length; i++) 
 		{
-		MiddleEarthCharacter[] temp = new MiddleEarthCharacter[this.characters.length-1];
-		for(int i = 0; i < size; i++) 
-		{
-			if(this.characters[i] != character && this.characters[i] != null) 
+			if(characters[i] != null && !characters[i].getName().equals(character.getName())) 
 			{
-				temp[i] = this.characters[i];
+				temp[newSize] = characters[i];
+				newSize++;
 			}
 		}
 		
-		this.characters = temp;
-		size--;
+		characters = temp;
+		size = newSize;
 		return true;
-		}
-		return false;
 	}
 	
 	/**

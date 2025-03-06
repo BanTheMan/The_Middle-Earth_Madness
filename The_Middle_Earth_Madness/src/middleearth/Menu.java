@@ -164,7 +164,6 @@ public class Menu {
 		this.characterManager.displayAllCharacters();
 		String attackerName = scanner.nextLine();
 		MiddleEarthCharacter attacker = this.characterManager.getCharacter(attackerName);
-		
 		if (attacker == null) {
             System.out.println("Character not found. Please try again.");
             continue;
@@ -181,7 +180,6 @@ public class Menu {
         }
 		
 		attacker.attack(victim);
-		System.out.println(victim.getHealth());
 		this.characterManager.updateCharacter(victim, victim.getName(), (int)victim.getHealth(), (int)victim.getPower());
 		break;
 		
@@ -236,6 +234,10 @@ public class Menu {
 					System.out.println("Selecting a character to update.");
 					String updateCharacterName = selectCharacter();
 					MiddleEarthCharacter characterToUpdate = this.characterManager.getCharacter(updateCharacterName);
+					if (characterToUpdate == null) {
+						System.out.println("Character not found.");
+						break;
+					}
 					System.out.println("Input character's new name: (Current name: " + characterToUpdate.getName() + ")");
 					String newName = scanner.next();
 					System.out.println("Input character's new health: (Current health: " + characterToUpdate.getHealth() + ")");
@@ -250,6 +252,10 @@ public class Menu {
 					System.out.println("Selecting a character to delete.");
 					String deleteCharacterName = selectCharacter();
 					MiddleEarthCharacter characterToDelete = this.characterManager.getCharacter(deleteCharacterName);
+					if (characterToDelete == null) {
+						System.out.println("Character not found.");
+						break;
+					}
 					this.characterManager.deleteCharacter(characterToDelete); 
 					break;
 					

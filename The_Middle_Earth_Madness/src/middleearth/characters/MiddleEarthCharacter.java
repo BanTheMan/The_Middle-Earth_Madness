@@ -62,7 +62,6 @@ public abstract class MiddleEarthCharacter {
 	 */
 	public void takeDamage(double damageTaken) {
 		this.health -= damageTaken;
-		System.out.println(this.health);
 	}
 
 	/**
