@@ -1,5 +1,8 @@
 package middleearth.characters;
 
+/**
+ * Author: Brandon Gomes
+ */
 public class Dwarf extends MiddleEarthCharacter {
 
 	public Dwarf(String name, double health, double power) {

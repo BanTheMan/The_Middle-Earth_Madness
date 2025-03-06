@@ -7,16 +7,19 @@ import middleearth.characters.Wizard;
 import middleearth.characters.Human;
 import middleearth.characters.MiddleEarthCharacter;
 
-// Author: Ivan (The Terrible) R.
+
+/**
+ * Author: Ivan R.
+ */
 public class CharacterManager {
 	private MiddleEarthCharacter[] characters = new MiddleEarthCharacter[5]; 
 	private int size = 0;
 	
 	/**
 	 * @param Character to be added to the manager/array.
-	 * @return True or False based on wther the character was added or not.
+	 * @return True or False based on whether the character was added or not.
 	 */
-	public boolean addCharacter(MiddleEarthCharacter c) 
+	boolean addCharacter(MiddleEarthCharacter c) 
 	{
 		if(c != null) {
 			if(characters.length == size) 
@@ -163,7 +166,7 @@ public class CharacterManager {
 	 * @param None, just called.
 	 * @return Nothing, just prints all of the characters in the manager.
 	 */
-	public void displayAllCharacters() 
+	void displayAllCharacters() 
 	{
 		for(MiddleEarthCharacter character: characters)
 		{
