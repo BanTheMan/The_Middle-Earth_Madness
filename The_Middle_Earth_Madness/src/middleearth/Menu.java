@@ -2,13 +2,8 @@ package middleearth;
 
 import java.util.Scanner;
 
-import middleearth.management.CharacterManager;
-import middleearth.characters.MiddleEarthCharacter;
-import middleearth.characters.Dwarf;
-import middleearth.characters.Elf;
-import middleearth.characters.Human;
-import middleearth.characters.Orc;
-import middleearth.characters.Wizard;
+import middleearth.characters.*;
+import middleearth.management.*;
 
 public class Menu {
 	private Scanner scanner;
@@ -22,8 +17,12 @@ public class Menu {
 	}
 	
 	public String selectCharacter() {
-		System.out.println("Please input the character you wish to select.\n");
+		System.out.println("Please input the character's name you wish to select.");
+		System.out.println("List of available characters:");
+		characterManager.displayAllCharacters();
+		
 		String characterName = scanner.next();
+		System.out.println("You selected " + characterName);
 		return characterName;
 				
 	}
@@ -104,7 +103,6 @@ public class Menu {
 				
 				newCharacter = new Wizard(nameW, healthW, powerW);
 		
-			
 		}
 		
 		if (newCharacter == null) 
@@ -118,21 +116,21 @@ public class Menu {
 	
 	public void displayMenu() {
 		while (true) {
-			System.out.println("\n --== Middle Earth Character Menu ==--\n");
-			System.out.println("1. Add a new character.\n");
-			System.out.println("2. View all characters.\n");
-			System.out.println("3. Update a character.\n");
-			System.out.println("4. Delete a character.\n");
-			System.out.println("5. Execute all characters' attack actions.\n");
-			System.out.println("6. Exit.\n");
-			System.out.println("Please enter an input: \n");
+			System.out.println("\n --== Middle Earth Character Menu ==--");
+			System.out.println("1. Add a new character.");
+			System.out.println("2. View all characters.");
+			System.out.println("3. Update a character.");
+			System.out.println("4. Delete a character.");
+			System.out.println("5. Execute all characters' attack actions.");
+			System.out.println("6. Exit.");
+			System.out.println("Please enter an input: ");
 			
 			int choice = scanner.nextInt();
 			scanner.nextLine();
 			
 			switch (choice) {
 				case 1: //Adding new character
-					System.out.println("Input 1 selected.\n");
+					System.out.println("Input 1 selected.");
 					MiddleEarthCharacter newCharacter = createCharacterMenu();
 					if(newCharacter == null)
 					{
@@ -143,14 +141,14 @@ public class Menu {
 					break;
 				
 				case 2: //Viewing all characters
-					System.out.println("Input 2 selected.\n");
+					System.out.println("Input 2 selected.");
 					characterManager.displayAllCharacters();
 					break;
 				
 				case 3: //Update a character
-					System.out.println("Input 3 selected.\n");
-					String givenName = selectCharacter();
-					characterManager.updateCharacter(characterManager.getCharacter(givenName)); // Ask and pass the character and stats to update
+					System.out.println("Input 3 selected.");
+					String updateCharacterName = selectCharacter();
+					MiddleEarthCharacter characterToUpdate = characterManager.getCharacter(updateCharacterName);
 					break;
 					
 				case 4: //Delete a character
