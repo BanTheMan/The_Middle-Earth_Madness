@@ -23,8 +23,6 @@ public class CharacterManager {
 	public boolean addCharacter(MiddleEarthCharacter c) 
 	{
 		if(c != null) {
-			System.out.println(characters.length);
-			System.out.println(size);
 			if(characters.length <= size) 
 			{
 				MiddleEarthCharacter[] temp = new MiddleEarthCharacter[characters.length * 2];
